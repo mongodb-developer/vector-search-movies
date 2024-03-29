@@ -15,6 +15,7 @@ module.exports = {
         Azure: "#A6FFEC",
         Purple: "#541cb4",
         Black: "#070708",
+        BlackSmoke: "#061621",
         "smoke-darkest": "rgba(0, 0, 0, 0.9)",
         "smoke-darker": "rgba(0, 0, 0, 0.75)",
         "smoke-dark": "rgba(0, 0, 0, 0.6)",

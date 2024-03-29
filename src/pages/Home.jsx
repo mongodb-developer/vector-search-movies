@@ -1,10 +1,16 @@
 import React from 'react'
 
+// import components
+import Header from '../components/Header'
+import SearchBar from '../components/SearchBar'
+
 const Home = () => {
   return (
-    <div className="min-h-screen bg-black"><h2 className="text-center text-4xl text-white pt-12">
-    Atlas Vector Search Movies
-  </h2>
+    <div className="min-h-screen bg-BlackSmoke">
+      <Header/>
+      <div className="w-3/4 mt-10 mx-auto"><SearchBar/></div>
+      
+ 
   </div>
   )
 }
