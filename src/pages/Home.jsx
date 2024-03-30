@@ -67,7 +67,7 @@ const Home = () => {
         </div> 
         <div className='flex flex-col w-3/4'>
           <Header/>
-          <div className=" w-5/6 mt-10 mx-auto">
+          <div className="px-10 w-full mt-10 mx-auto">
             <SearchBar  searchOption={searchOption} setSearchOption={setSearchOption} onSubmit={handleSubmit}/>
           </div>
         </div>

@@ -11,13 +11,22 @@ const MovieCard = ({movie}) => {
     genreString = movie.genres.join(", ");
   }
 
+  let poster = movie.poster;
+  if (!movie.poster) {
+    poster = 'https://search-demos.s3.us-east-2.amazonaws.com/PosterNotFound.png';
+  }
+
+ 
+
+
+
   return (
     <div className='bg-slate-800 p-8 rounded w-full h-96  overflow-auto border border-black cursor-pointer hover:scale-110 transition-transform duration-500'>
  
         <div className='text-SpringGreen text-2xl text-center mb-4'>{movie.title}</div>
        
         <img
-            src={movie.poster}
+            src={poster}
             alt="movie-thumb"
             className=" w-full mx-auto "
           />

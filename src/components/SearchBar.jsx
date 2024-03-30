@@ -19,7 +19,7 @@ const SearchBar = ({ searchOption, setSearchOption, onSubmit}) => {
     }
    
   return (
-    <div className="flex justify-between text-black mt-8 ">
+    <div className="flex justify-between text-black mt-8 w-full ">
     <form  onSubmit={handleFormSubmit} className="w-full flex relative">
       <span className="absolute inset-y-0 flex items-center">
         <svg
@@ -38,18 +38,18 @@ const SearchBar = ({ searchOption, setSearchOption, onSubmit}) => {
         </svg>
       </span>
       <input
-        className="w-2/3 border rounded-lg border-slate-400 py-4 pl-16 focus:border-green-500 focus:outline-none focus:shadow-outline bg-transparent text-white"
+        className="w-full border rounded-lg border-slate-400 py-4 pl-16 focus:border-green-500 focus:outline-none focus:shadow-outline bg-transparent text-white"
         type="text"
         placeholder="Search movies ..."
         onChange={(e) => setTerms(e.target.value)}
         value={terms}
       />
-      <div className="flex flex-col w-1/8 mx-8 text-lg bg-transparent">
+      <div className="flex flex-col w-1/8 mx-4 text-lg bg-transparent">
         <div className=" mx-auto text-SpringGreen">Vector Search for</div>
         <Selector searchOption={searchOption} setSearchOption={setSearchOption}/>  
       </div>
      
-      <div className="flex ml-10 w-32 items-center justify-center text-white  bg-green-600 rounded py-2 px-4 cursor-pointer">
+      <div className="flex ml-10 w-24 items-center justify-center text-white  bg-green-600 rounded py-2 px-4 cursor-pointer">
       <p>SEARCH</p>
       </div>
     </form>

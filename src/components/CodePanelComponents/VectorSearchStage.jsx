@@ -49,7 +49,7 @@ const VectorSearchStage = ({searchTerms, price, bedrooms, people, region, types}
           "$vectorSearch": {
             "index": "vector_index",
             "queryVector": "embeddings",
-            "path": "description_embedding",
+            "path": "fullplot_embedding",
             "filter":"filter",
             "numCandidates":100,
             "limit": 12

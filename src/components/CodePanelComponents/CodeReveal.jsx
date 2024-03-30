@@ -35,24 +35,26 @@ const CodeReveal = ({
 export default CodeReveal;
 
 const vectorIndex = {
-    "fields": [
-      {
-        "numDimensions": 1536,
-        "path": "description_embedding",
-        "similarity": "cosine",
-        "type": "vector"
-      },
-      {
-        "path": "address.market",
-        "type": "filter"
-      },
-      {
-        "path": "accommodates",
-        "type": "filter"
-      },
-      {
-        "path": "bedrooms",
-        "type": "filter"
-      }
-    ]
-  };
+  "fields": [
+    {
+      "numDimensions": 1536,
+      "path": "fullplot_embedding",
+      "similarity": "dotProduct",
+      "type": "vector"
+    },
+    {
+      "numDimensions": 512,
+      "path": "poster_embedding",
+      "similarity": "euclidean",
+      "type": "vector"
+    },
+    {
+      "path": "imdb.rating",
+      "type": "filter"
+    },
+    {
+      "path": "genres",
+      "type": "filter"
+    }
+  ]
+};
