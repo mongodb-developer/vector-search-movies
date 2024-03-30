@@ -3,17 +3,24 @@ import Selector from './Selector';
 // import makeAnimated from "react-select/animated";
 
 const searchTypeOptions = [
-    { id: 1, name: 'plot', unavailable: true },
-    { id: 2, name: 'poster', unavailable: false },
-    { id: 3, name: 'LLM', unavailable: false },
+    { id: 1, name: 'plot' },
+    { id: 2, name: 'poster' },
+    { id: 3, name: 'LLM' },
   
   ];
 
-const SearchBar = () => {
+const SearchBar = ({ searchOption, setSearchOption, onSubmit}) => {
+    const [terms, setTerms] = useState('');
 
+    const handleFormSubmit = (event) =>{
+        event.preventDefault();
+       
+        onSubmit(terms);
+    }
+   
   return (
     <div className="flex justify-between text-black mt-8 ">
-    <form  className="w-full flex relative">
+    <form  onSubmit={handleFormSubmit} className="w-full flex relative">
       <span className="absolute inset-y-0 flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,15 +38,15 @@ const SearchBar = () => {
         </svg>
       </span>
       <input
-        className="w-2/3 border rounded-lg border-slate-400 py-4 pl-16 focus:border-green-500 focus:outline-none focus:shadow-outline bg-transparent"
+        className="w-2/3 border rounded-lg border-slate-400 py-4 pl-16 focus:border-green-500 focus:outline-none focus:shadow-outline bg-transparent text-white"
         type="text"
         placeholder="Search movies ..."
-        // onChange={(e) => setSearchTerms(e.target.value)}
-        // value={searchTerms}
+        onChange={(e) => setTerms(e.target.value)}
+        value={terms}
       />
       <div className="flex flex-col w-1/8 mx-8 text-lg bg-transparent">
         <div className=" mx-auto text-SpringGreen">Vector Search for</div>
-        <Selector/>  
+        <Selector searchOption={searchOption} setSearchOption={setSearchOption}/>  
       </div>
      
       <div className="flex ml-10 w-32 items-center justify-center text-white  bg-green-600 rounded py-2 px-4 cursor-pointer">

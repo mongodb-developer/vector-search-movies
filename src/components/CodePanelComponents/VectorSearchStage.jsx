@@ -3,7 +3,6 @@ import React from "react";
 import CodeSnippetCopy from "./CodeSnippetCopy";
 
 const VectorSearchStage = ({searchTerms, price, bedrooms, people, region, types}) => {
-  console.log("TYPES: ", types);
  
 
 //   let filterObject = {"price": {"$lte":price}};

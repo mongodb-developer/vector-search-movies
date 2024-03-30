@@ -12,13 +12,13 @@ const CodeReveal = ({
   copyTextObject,
   lesson,
 }) => {
-  let codeStyle = `bg-green-700 w-full text-white py-2 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-12 rounded `;
+  let codeStyle = `bg-purple-800 w-full text-white py-2 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-12 rounded `;
 
   return (
     <div className="Wrapper py-2 ">
       <div className="flex justify-center">
         <div className={`${codeStyle}`} onClick={() => toggle(open)}>
-          {open ? <div>Close Index Definition</div> : <div>Show Index Definition</div>}
+          {open ? <div>Close Index Definition</div> : <div>Index Definition</div>}
           <div className="text-3xl text-white ml-4">
             {open ? <AiFillMinusCircle /> : <AiFillPlusCircle />}
           </div>

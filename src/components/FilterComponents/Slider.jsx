@@ -5,15 +5,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
+const Slider = ({rating, setRating}) => {
 
-
-const Slider = () => {
- const [sliderValue, setSliderValue] = useState(3);
  const [showCodeBlock, setShowCodeBlock]= useState(false)
   
   let ratingObject = {
     range: {
-      gte: sliderValue,
+      gte: rating,
       lte: 10,
       path: "imdb.rating",
     },
@@ -25,15 +23,15 @@ const Slider = () => {
      
      <div className="w-full flex justify-center mb-6 ">
       <div className="w-full py-4  rounded-lg">
-        <div className="text-center text-lg text-Sun">IMDB Rating:</div>
+        <div className="text-center text-lg text-Sun">Minimum Rating:</div>
         <div className="my-10 ">
         <ReactSlider
         className="horizontal-slider w-full  mx-auto "
-          value={sliderValue}
+          value={rating}
           max={10}
           min={0}
           onAfterChange={(value, index) => {
-            setSliderValue(value);
+            setRating(value);
           }}
           
           thumbClassName="example-thumb absolute -top-6 cursor-pointer flex black bg-Purple text-white p-4 rounded-full outline-none"

@@ -1,27 +1,28 @@
 import React from 'react'
 
-const MovieCard = () => {
+const MovieCard = ({movie}) => {
 
     const releaseDate = sampleMovieData.released;
 //   const releaseString = releaseDate?.slice(0, 10);
-  const rating = sampleMovieData.imdb.rating;
-  const fullplot = sampleMovieData.plot;
+  const rating = movie.imdb.rating;
+  const fullplot = movie.fullplot;
   let genreString = "";
-  if (sampleMovieData.genres) {
-    genreString = sampleMovieData.genres.join(", ");
+  if (movie.genres) {
+    genreString = movie.genres.join(", ");
   }
 
   return (
     <div className='bg-slate-800 p-8 rounded w-full h-96  overflow-auto border border-black cursor-pointer hover:scale-110 transition-transform duration-500'>
  
-        <div className='text-SpringGreen text-2xl text-center mb-4'>Ace Veture Pet Detective</div>
+        <div className='text-SpringGreen text-2xl text-center mb-4'>{movie.title}</div>
        
         <img
-            src="https://m.media-amazon.com/images/M/MV5BYmVhNmFmOGYtZjgwNi00ZGQ0LThiMmQtOGZjMDUzNzJhMGIzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+            src={movie.poster}
             alt="movie-thumb"
             className=" w-full mx-auto "
           />
        <div className='text-white'> <h4>{fullplot}</h4>
+       <div className="SEPARATOR bg-Purple  w-full mx-auto rounded-xl my-4 h-1 "></div>
 
 {/* <ScoreBadge>Score: {score}</ScoreBadge> */}
 <h3>Year: {sampleMovieData.year}</h3>

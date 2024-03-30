@@ -4,13 +4,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
-const Checkboxes = () => {
-    const [genres, setGenres] = useState([]);
+const Checkboxes = ({genre, setGenre}) => {
+   
     const [showCodeBlock, setShowCodeBlock]= useState(false)
 
     let genreObject = {
         text: {
-          query: genres,
+          query: genre,
           path: "genres",
         },
       };
@@ -34,10 +34,8 @@ const Checkboxes = () => {
             checkedGenres.push(movieGenresArray[i]);
           }
         }
-        setGenres(checkedGenres);
-        // setSubmitted(true);
-    
-        console.log(checkedGenres);
+        setGenre(checkedGenres);
+      
       };
   return (
     <div className="checkbox-container">
@@ -45,7 +43,6 @@ const Checkboxes = () => {
       <div className=' p-2 text-white'>
         <ul className="genres-list">
           {movieGenresArray.map((name, index) => {
-            let count = 0;
 
             return (
               <div className="genre flex space-y-2 space-x-4 rounded text-lg" key={index}>
