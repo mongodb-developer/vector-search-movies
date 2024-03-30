@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 import CodePanel from '../components/CodePanelComponents/CodePanel'
 import Filter from '../components/FilterComponents/Filter'
+import MovieResults from '../components/MovieResults';
 
 const Home = () => {
   return (
@@ -27,8 +28,8 @@ const Home = () => {
      
      
       <div className='main-block flex mt-20 justify-center text-center px-10'>
-        <div className="filter w-1/5 px-8 bg-transparent"><Filter /></div>
-        <div className="movies w-3/5 px-8 bg-purple-600">MOVIES</div>
+        <div className="filter w-1/6 px-8 bg-transparent"><Filter /></div>
+        <div className="movies w-3/4 px-8 bg-transparent"><MovieResults/></div>
         <div className="aggregation w-1/5 px-8 bg-transparent"><CodePanel/></div>
       </div>
       

@@ -6,7 +6,7 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const Checkboxes = () => {
     const [genres, setGenres] = useState([]);
-    const [showCodeBlock, setShowCodeBlock]= useState(true)
+    const [showCodeBlock, setShowCodeBlock]= useState(false)
 
     let genreObject = {
         text: {
