@@ -3,7 +3,7 @@ import CodeReveal from "./CodeReveal";
 import VectorSearchStage from "./VectorSearchStage";
 
 
-const CodePanel = ({searchTerms, price, region, people, bedrooms, types}) => {
+const CodePanel = ({searchTerms, rating, genre}) => {
     const [showIndex, setShowIndex] = useState(false);
 
     const toggle = (showIndex) => {
@@ -15,7 +15,7 @@ const CodePanel = ({searchTerms, price, region, people, bedrooms, types}) => {
         <CodeReveal  open={showIndex} toggle={toggle}/>
         <div className="text-center bg-SlateBlue">
         <div className="p-4">
-            <VectorSearchStage searchTerms={searchTerms} price={price} region={region} people={people} bedrooms={bedrooms} types={types}/>
+            <VectorSearchStage searchTerms={searchTerms} rating={rating} genre={genre}/>
         </div>
         </div>
     </div>

@@ -2,45 +2,27 @@ import React from "react";
 
 import CodeSnippetCopy from "./CodeSnippetCopy";
 
-const VectorSearchStage = ({searchTerms, price, bedrooms, people, region, types}) => {
+const VectorSearchStage = ({searchTerms, rating, genre}) => {
  
+  let filterObject = {
+    '$and': []
+  };
 
-//   let filterObject = {"price": {"$lte":price}};
-//   if (bedrooms > 0 || region!=="Anywhere" || people > 0 || types.length >0){
-//     filterObject = {'$and':[
-//       {"price": {"$lte":price}}
-//     ]}
-//   };
+  if (rating >0){
+    const ratingObject =  {
+      'imdb.rating': {
+        '$gte': rating
+      }
+    };
+    filterObject.$and.push(ratingObject)
+  }
 
-//   if (region !== "Anywhere"){
-//     const marketObject = { "region": region  };
-//     filterObject.$and.push(marketObject)
-//   }
-
-//   if (people > 0){
-//     const peopleObject =  {
-//       'accommodates': {
-//         '$gte': people
-//       }
-//     };
-//     filterObject.$and.push(peopleObject)
-//   }
-
-//   if (bedrooms >0){
-//     const bedroomsObject =  {
-//       'bedrooms': {
-//         '$gte': bedrooms
-//       }
-//     };
-//     filterObject.$and.push(bedroomsObject)
-//   }
-
-//   if (types.length > 0){
-//     const typesObject = {
-//       "property_type": { $in : types}
-//     };
-//     filterObject.$and.push(typesObject)
-//   }
+  if (genre.length > 0){
+    const genresObject = {
+      "genres": { $in : genre}
+    };
+    filterObject.$and.push(genresObject)
+  }
 
   // let embeddings = embeddings for searchTerms"
 
@@ -50,7 +32,7 @@ const VectorSearchStage = ({searchTerms, price, bedrooms, people, region, types}
             "index": "vector_index",
             "queryVector": "embeddings",
             "path": "fullplot_embedding",
-            "filter":"filter",
+            "filter":filterObject,
             "numCandidates":100,
             "limit": 12
           }

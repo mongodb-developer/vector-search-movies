@@ -78,7 +78,7 @@ const Home = () => {
       <div className='main-block flex mt-20 justify-center text-center px-10'>
         <div className="filter w-1/6 px-8 bg-transparent"><Filter rating={rating} setRating={setRating} genre={genre} setGenre={setGenre} setSubmitted={setSubmitted}/></div>
         <div className="movies w-3/4 px-8 bg-transparent"><MovieResults movies={movies}/></div>
-        <div className="aggregation w-1/5 px-8 bg-transparent"><CodePanel/></div>
+        <div className="aggregation w-1/5 px-8 bg-transparent"><CodePanel genre={genre} rating={rating} searchTerms={searchTerms}/></div>
       </div>
       
  
