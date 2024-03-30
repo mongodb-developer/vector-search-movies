@@ -4,6 +4,18 @@ import CodeSnippetCopy from "./CodeSnippetCopy";
 
 const VectorSearchStage = ({searchTerms, rating, genre}) => {
  
+
+  let vectorSearchAggregationObject = 
+  {
+    "$vectorSearch": {
+      "index": "vector_index",
+      "queryVector": "embeddings",
+      "path": "fullplot_embedding",
+      "numCandidates":100,
+      "limit": 12
+    }
+  };
+
   let filterObject = {
     '$and': []
   };
@@ -26,7 +38,9 @@ const VectorSearchStage = ({searchTerms, rating, genre}) => {
 
   // let embeddings = embeddings for searchTerms"
 
-    let vectorSearchAggregationObject = 
+   
+  if (filterObject.$and.length >0){
+    vectorSearchAggregationObject = 
         {
           "$vectorSearch": {
             "index": "vector_index",
@@ -37,6 +51,7 @@ const VectorSearchStage = ({searchTerms, rating, genre}) => {
             "limit": 12
           }
         };
+  }
     
   return (
     <div className="rounded">
