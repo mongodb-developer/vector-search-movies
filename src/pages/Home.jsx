@@ -29,7 +29,7 @@ const Home = () => {
   };
 
   const getMovies = async() =>{
-    const response = await semanticSearchMovies(data);
+    const response = await semanticSearchMovies(data, searchOption);
     console.log("MOVIES: ", response.data);
     setMovies(response.data);
   }
@@ -83,7 +83,7 @@ const Home = () => {
         <div className="movies w-3/4 px-8 bg-transparent">
           <MovieResults movies={movies}/>
         </div>
-        <div className="aggregation w-1/5 px-8 bg-transparent">
+        <div className="aggregation w-1/4 px-8 bg-transparent">
           <CodePanel 
             genre={genre} 
             rating={rating} 
