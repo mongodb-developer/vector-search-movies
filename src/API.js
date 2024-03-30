@@ -17,11 +17,11 @@ const Params = {};
 const semanticMoviesSearchEndpoint = "https://us-east-1.aws.data.mongodb-api.com/app/movies-wseyb/endpoint/getSemanticSearchPost" ;
 
 const semanticSearchMovies = async (data, searhOption) => {
+  console.log("posting to endpoint");
 
   // TO DO - pick endpoint based on search option - plot, poster, LLM
     const response = await axios.post(semanticMoviesSearchEndpoint, data);
-    // console.log("RESPONSE from ssm function: ", response)
-    // console.log(JSON.stringify(data));
+    console.log("RESPONSE from POST: ", response)
     return response;
 }
 

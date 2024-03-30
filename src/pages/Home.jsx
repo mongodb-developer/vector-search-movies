@@ -20,36 +20,28 @@ const Home = () => {
   const [submitted, setSubmitted] = useState(false);
   const [movies, setMovies] = useState([]);
 
-  
+  let data = {
+    semanticSearchTerms: searchTerms,
+    start: dateStart,
+    end: dateEnd,
+    genre: genre,
+    rating: rating,
+  };
 
-  const handleSubmit = async (terms) => {
-    setSearchTerms(terms);
-    let data = {
-      semanticSearchTerms: searchTerms,
-      start: dateStart,
-      end: dateEnd,
-      genre: genre,
-      rating: rating,
-    };
-   
-    const response = await semanticSearchMovies(data, searchOption);
-    if (response.status === 200){
-      console.log(response.data);
-      setMovies(response.data);
-    }
-    // setMovies(res.data.movies);
+  const getMovies = async() =>{
+    const response = await semanticSearchMovies(data);
+    console.log("MOVIES: ", response.data);
+    setMovies(response.data);
   }
+
+
 
   useEffect(() => {
     if (!submitted) return;
-    let data = {
-      semanticSearchTerms: searchTerms,
-      start: dateStart,
-      end: dateEnd,
-      genre: genre,
-      rating: rating,
-    };
-    semanticSearchMovies(data)
+    console.log("using effect");
+    getMovies();
+   
+   
     setSubmitted(false);
 
     // eslint-disable-next-line
@@ -68,17 +60,35 @@ const Home = () => {
         <div className='flex flex-col w-3/4'>
           <Header/>
           <div className="px-10 w-full mt-10 mx-auto">
-            <SearchBar  searchOption={searchOption} setSearchOption={setSearchOption} onSubmit={handleSubmit}/>
+            <SearchBar  
+              searchOption={searchOption} 
+              setSearchOption={setSearchOption} 
+              setSubmitted={setSubmitted} 
+              searchTerms={searchTerms} 
+              setSearchTerms={setSearchTerms}
+            />
           </div>
         </div>
       </div>
      
-     
-     
       <div className='main-block flex mt-20 justify-center text-center px-10'>
-        <div className="filter w-1/6 px-8 bg-transparent"><Filter rating={rating} setRating={setRating} genre={genre} setGenre={setGenre} setSubmitted={setSubmitted}/></div>
-        <div className="movies w-3/4 px-8 bg-transparent"><MovieResults movies={movies}/></div>
-        <div className="aggregation w-1/5 px-8 bg-transparent"><CodePanel genre={genre} rating={rating} searchTerms={searchTerms}/></div>
+        <div className="filter w-1/6 px-8 bg-transparent">
+          <Filter 
+            rating={rating} 
+            setRating={setRating} 
+            genre={genre} 
+            setGenre={setGenre} 
+            setSubmitted={setSubmitted}/>
+        </div>
+        <div className="movies w-3/4 px-8 bg-transparent">
+          <MovieResults movies={movies}/>
+        </div>
+        <div className="aggregation w-1/5 px-8 bg-transparent">
+          <CodePanel 
+            genre={genre} 
+            rating={rating} 
+            searchTerms={searchTerms}/>
+        </div>
       </div>
       
  
