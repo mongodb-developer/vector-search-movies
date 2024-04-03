@@ -19,7 +19,7 @@ const MovieResults = ({movies}) => {
   
       </div>
     )
-  } else return <div className='text-white'>NO MOVIES FOUND</div>
+  } else return <div className='text-white'></div>
 
 }
 

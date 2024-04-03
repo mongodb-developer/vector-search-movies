@@ -30,14 +30,16 @@ const MovieCard = ({movie}) => {
             alt="movie-thumb"
             className=" w-full mx-auto "
           />
-       <div className='text-white'> <h4>{fullplot}</h4>
-       <div className="SEPARATOR bg-Purple  w-full mx-auto rounded-xl my-4 h-1 "></div>
-
-{/* <ScoreBadge>Score: {score}</ScoreBadge> */}
-<h3>Year: {sampleMovieData.year}</h3>
-<h3>Rating: {rating}</h3>
-<h4>RELEASE DATE: May 10, 1944</h4>
-<h2 style={{ color: "#CCFF00" }}>{genreString}</h2></div>
+       <div className='text-white'> 
+       <h3>Year: {sampleMovieData.year}</h3>
+        <h3>Rating: {rating}</h3>
+        <h4>RELEASE DATE: May 10, 1944</h4>
+        <h2 style={{ color: "#CCFF00" }}>{genreString}</h2>
+       
+        <div className="SEPARATOR bg-Purple  w-full mx-auto rounded-xl my-4 h-1 "></div>
+        <h4>{fullplot}</h4>
+      
+      </div>
        
 
     </div>
