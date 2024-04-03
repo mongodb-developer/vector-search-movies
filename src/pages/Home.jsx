@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import Logo from "../images/Mlogo.svg";
 import semanticSearchMovies from '../API';
+import { ChatOpenAI } from "@langchain/openai";
+
+import { Document } from "langchain/document";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { createStuffDocumentsChain } from "langchain/chains/combine_documents"; // this chain allows us to pass in a list of docs - it will reformat and inject text into prompt
+
+import { OPENAI_API_KEY } from "../config/openai";
 
 // import components
 import Header from '../components/Header'

@@ -12,6 +12,7 @@
 /build
 
 .env
+/src/config/openai.js
 
 # misc
 .DS_Store
