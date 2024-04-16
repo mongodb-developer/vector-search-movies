@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from "react-router-dom";
 import Logo from "../images/Mlogo.svg";
 import semanticSearchMovies from '../API';
 
@@ -34,6 +35,13 @@ const Home = () => {
   const [submitted, setSubmitted] = useState(false);
   const [movies, setMovies] = useState([]);
   const [llmAnswer, setLlmAnswer] = useState("");
+
+  const navigate = useNavigate();
+
+  const navigateReference = () => {
+   
+    navigate("/resources");
+  };
 
 // DEMONSTRATE THE EFFECT OF PROVIDING CONTEXT - and replace in chain.invoke.context [sampleDocument]
 const sampleDocument = new Document({
@@ -130,6 +138,8 @@ const sampleDocument = new Document({
             src={Logo}
             alt="placeholder"
             className=" w-full mx-auto cursor-pointer hover:scale-110 transition-transform duration-500"
+            onClick={navigateReference}
+
           />
         </div> 
         <div className='flex flex-col w-3/4'>
